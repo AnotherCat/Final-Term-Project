@@ -12,22 +12,30 @@ public class LookFocus : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        Debug.DrawRay(fpsCam.transform.position, fpsCam.transform.TransformDirection(Vector3.forward) * maxDistance);
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.TransformDirection(Vector3.forward), out hitInfo, maxDistance))
         {
             ActiveableObject act = hitInfo.collider.GetComponent<ActiveableObject>();
-            if(hitInfo.collider != null && act != null)
+            if(act != null)
             {
                 if (act.CanActive)
                 {
                     ActiveObjectText.enabled = true;
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        act.ActiveObject();
+                    }
+
                 }else
                 {
                     ActiveObjectText.enabled = false;
                 }
-            }else
-            {
-                ActiveObjectText.enabled = false;
             }
+        }
+        else
+        {
+            ActiveObjectText.enabled = false;
         }
     }
 }
