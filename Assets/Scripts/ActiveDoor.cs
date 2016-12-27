@@ -35,14 +35,12 @@ public class ActiveDoor : ActiveableObject
     private void Update()
     {
 
-        if (doorAnimation.IsPlaying("open"))
+        if (doorAnimation.IsPlaying("open") || doorAnimation.IsPlaying("close"))
         {
             CanActive = false;
-        }
-
-        if (doorAnimation.IsPlaying("close"))
+        }else
         {
-            CanActive = false;
+            CanActive = true;
         }
     }
 
