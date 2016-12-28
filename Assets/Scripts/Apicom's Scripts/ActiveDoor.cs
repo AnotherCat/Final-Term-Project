@@ -18,7 +18,7 @@ public class ActiveDoor : ActiveableObject
 
     public override void ActiveObject()
     {
-        if (!Toggle || !CanActive) return;
+        if (Locked || !CanActive) return;
 
         if (opened)
         {
@@ -44,7 +44,7 @@ public class ActiveDoor : ActiveableObject
     {
         base.Update();
 
-        if (!Toggle)
+        if (Locked)
         {
             StatusText = LockedText;
         }else

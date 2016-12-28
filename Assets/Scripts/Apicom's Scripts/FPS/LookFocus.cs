@@ -10,7 +10,8 @@ public class LookFocus : MonoBehaviour {
     private RaycastHit hitInfo;
     public float maxDistance = 5;
 
-    private void FixedUpdate()
+    //private void FixedUpdate()
+    void Update()
     {
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.TransformDirection(Vector3.forward), out hitInfo, maxDistance))
         {
@@ -28,7 +29,7 @@ public class LookFocus : MonoBehaviour {
         }
         else
         {
-            ActiveObjectText.enabled = false;
+            ActiveObjectText.text = "";
         }
     }
 }

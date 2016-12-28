@@ -10,7 +10,7 @@ public class ActiveButton : ActiveableObject
 
     public override void ActiveObject()
     {
-        if (!Toggle) return;
+        if (Locked) return;
 
         Activated = !Activated;
     }
@@ -19,7 +19,7 @@ public class ActiveButton : ActiveableObject
     {
         base.Update();
 
-        if (!Toggle)
+        if (Locked)
         {
             StatusText = LockedText;
         }

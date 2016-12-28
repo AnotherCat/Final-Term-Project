@@ -10,7 +10,7 @@ abstract public class ActiveableObject : MonoBehaviour {
     [HideInInspector]
     public string StatusText;
     
-    public bool Toggle = true;
+    public bool Locked = false;
     public bool Activated = false;
 
     public abstract void ActiveObject();
@@ -19,12 +19,12 @@ abstract public class ActiveableObject : MonoBehaviour {
     {
         if(MustActiveObjects.Length > 0 && MustActiveObjects != null)
         {
-            Toggle = true;
+            Locked = false;
             for(int i = 0; i < MustActiveObjects.Length; i++)
             {
                 if (!MustActiveObjects[i].Activated)
                 {
-                    Toggle = false;
+                    Locked = true;
                     break;
                 }
             }
