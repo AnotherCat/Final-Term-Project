@@ -8,13 +8,6 @@ public class ActiveButton : ActiveableObject
     public string LockedText = "";
     public string ActiveableText = "";
 
-    public override void ActiveObject()
-    {
-        if (Locked) return;
-
-        Activated = !Activated;
-    }
-
     public override void Update()
     {
         base.Update();
@@ -25,7 +18,13 @@ public class ActiveButton : ActiveableObject
         }
         else
         {
-            StatusText = ActiveableText;
+            if(!Activated || Toggle)
+            {
+                StatusText = ActiveableText;
+            }else
+            {
+                StatusText = "";
+            }
         }
 
         StatusColor();

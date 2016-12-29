@@ -12,8 +12,22 @@ abstract public class ActiveableObject : MonoBehaviour {
     
     public bool Locked = false;
     public bool Activated = false;
+    public bool Toggle = false;
 
-    public abstract void ActiveObject();
+    public virtual void ActiveObject()
+    {
+        if (Locked) return;
+
+        if (Toggle)
+        {
+            Activated = !Activated;
+        }
+        else
+        {
+            Activated = true;
+        }
+        
+    }
 
     public virtual void Update()
     {
