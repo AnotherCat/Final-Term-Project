@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActiveDoor : ActiveableObject
 {
@@ -9,6 +10,8 @@ public class ActiveDoor : ActiveableObject
     public string LockedText = "";
     public string ActiveableText = "";
     public string InactivealbeText = "";
+
+    public Text StateText;
 
     private bool opened = false;
 
@@ -58,6 +61,17 @@ public class ActiveDoor : ActiveableObject
             {
                 CanActive = true;
                 StatusText = ActiveableText;
+            }
+        }
+
+        if(StateText != null)
+        {
+            if (Locked)
+            {
+                StateText.text = "Locked";
+            }else
+            {
+                StateText.text = "";
             }
         }
     }

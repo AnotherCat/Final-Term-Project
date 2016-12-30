@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23995549222707186}
   - component: {fileID: 114762715403585292}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Apicom's Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,11 +94,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MustActiveObjects: []
   StatusText: 
+  Locked: 0
+  Activated: 0
   Toggle: 1
-  CanActive: 1
   LockedText: Locked
   ActiveableText: Press E
-  actived: 0
+  StateText: {fileID: 0}
 --- !u!136 &136047748504422184
 CapsuleCollider:
   m_ObjectHideFlags: 1
