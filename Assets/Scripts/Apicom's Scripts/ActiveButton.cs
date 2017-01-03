@@ -21,10 +21,18 @@ public class ActiveButton : ActiveableObject
         }
         else
         {
-            if(!Activated || Toggle)
+            if (!Activated || Toggle)
             {
-                StatusText = ActiveableText;
-            }else
+                //StatusText = ActiveableText;
+                if (Delaying)
+                {
+                    StatusText = "...";
+                }else
+                {
+                    StatusText = ActiveableText;
+                }
+            }
+            else
             {
                 StatusText = "";
             }

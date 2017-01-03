@@ -14,17 +14,44 @@ abstract public class ActiveableObject : MonoBehaviour {
     public bool Activated = false;
     public bool Toggle = false;
 
+    public float Delay = 0;
+    [HideInInspector]
+    public bool Delaying = false;
+    private bool foo = false;
+    private float timer = 0;
+
     public virtual void ActiveObject()
     {
         if (Locked) return;
 
         if (Toggle)
         {
-            Activated = !Activated;
+            if(Delay > 0)
+            {
+                if (!Delaying)
+                {
+                    foo = true;
+                    Delaying = true;
+                }
+            }else
+            {
+                Activated = !Activated;
+            }
         }
         else
         {
-            Activated = true;
+            if(Delay > 0)
+            {
+                if (!Delaying)
+                {
+                    foo = true;
+                    Delaying = true;
+                }
+            }
+            else
+            {
+                Activated = true;
+            }
         }
         
     }
@@ -40,6 +67,25 @@ abstract public class ActiveableObject : MonoBehaviour {
                 {
                     Locked = true;
                     break;
+                }
+            }
+        }
+
+        if(foo && Delay > 0)
+        {
+            timer += Time.deltaTime;
+            if(timer >= Delay)
+            {
+                timer = 0;
+                foo = false;
+                Delaying = false;
+                if (Toggle)
+                {
+                    Activated = !Activated;
+                }
+                else
+                {
+                    Activated = true;
                 }
             }
         }

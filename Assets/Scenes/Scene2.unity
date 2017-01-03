@@ -6221,6 +6221,11 @@ Prefab:
       propertyPath: m_Name
       value: Apicom's Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114762715403585292, guid: e340c4a29a25c044d993163f4e386252,
+        type: 2}
+      propertyPath: Delay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e340c4a29a25c044d993163f4e386252, type: 2}
   m_IsPrefabParent: 0
@@ -8859,6 +8864,11 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114296474201325886, guid: cd923439ab3740d49ad79229161c54d2,
+        type: 2}
+      propertyPath: Delay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd923439ab3740d49ad79229161c54d2, type: 2}
   m_IsPrefabParent: 0
@@ -11484,6 +11494,11 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688675559719396, guid: d9c6e201b876d59428382428af6368fe,
+        type: 2}
+      propertyPath: Delay
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9c6e201b876d59428382428af6368fe, type: 2}
