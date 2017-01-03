@@ -8,8 +8,10 @@ public class ActiveButton : ActiveableObject
 {
     public string LockedText = "";
     public string ActiveableText = "";
+    public string PresentText = "";
 
     public Text StateText;
+    public Slider SliderDelaying;
 
     public override void Update()
     {
@@ -43,7 +45,7 @@ public class ActiveButton : ActiveableObject
             {
                 if (!Activated || Toggle)
                 {
-                    StateText.text = "Click Here";
+                    StateText.text = PresentText;
                 }
                 else
                 {
@@ -56,6 +58,9 @@ public class ActiveButton : ActiveableObject
         }
         
         StatusColor();
+
+        if(Delay > 0 && SliderDelaying != null)
+        SliderDelaying.value = (timer / Delay) * 100;
     }
 
     private void StatusColor()

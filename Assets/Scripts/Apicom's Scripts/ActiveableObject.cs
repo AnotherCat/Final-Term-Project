@@ -9,20 +9,27 @@ abstract public class ActiveableObject : MonoBehaviour {
 
     [HideInInspector]
     public string StatusText;
-    
+    [HideInInspector]
     public bool Locked = false;
+    [HideInInspector]
     public bool Activated = false;
+
+    public bool Hold = false;
     public bool Toggle = false;
 
     public float Delay = 0;
     [HideInInspector]
     public bool Delaying = false;
     private bool foo = false;
-    private float timer = 0;
+    [HideInInspector]
+    public float timer = 0;
+
+    private bool holding = false;
 
     public virtual void ActiveObject()
     {
         if (Locked) return;
+        if (Hold) return;
 
         if (Toggle)
         {
@@ -71,14 +78,21 @@ abstract public class ActiveableObject : MonoBehaviour {
             }
         }
 
-        if(foo && Delay > 0)
+        if (Hold)
         {
-            timer += Time.deltaTime;
-            if(timer >= Delay)
+            if (!Toggle && Activated) return;
+
+            if (holding)
+            {
+                timer += Time.deltaTime;
+            }else
             {
                 timer = 0;
-                foo = false;
-                Delaying = false;
+            }
+
+            if (timer >= Delay)
+            {
+                timer = 0;
                 if (Toggle)
                 {
                     Activated = !Activated;
@@ -89,5 +103,37 @@ abstract public class ActiveableObject : MonoBehaviour {
                 }
             }
         }
+        else
+        {
+            if (foo && Delay > 0)
+            {
+                timer += Time.deltaTime;
+                if (timer >= Delay)
+                {
+                    timer = 0;
+                    foo = false;
+                    Delaying = false;
+                    if (Toggle)
+                    {
+                        Activated = !Activated;
+                    }
+                    else
+                    {
+                        Activated = true;
+                    }
+                }
+            }
+        }
+
+        holding = false;
+    }
+
+    public void OnKeyDown()
+    {
+        holding = true;
+    }
+    public void OnKeyUp()
+    {
+        holding = false;
     }
 }
