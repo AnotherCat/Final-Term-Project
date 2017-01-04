@@ -25,6 +25,14 @@ public class LookFocus : MonoBehaviour {
                 {
                     act.ActiveObject();
                 }
+                if (Input.GetKey(KeyCode.E))
+                {
+                    act.OnKeyDown();
+                }
+                if (Input.GetKeyUp(KeyCode.E))
+                {
+                    act.OnKeyUp();
+                }
             }
         }
         else
