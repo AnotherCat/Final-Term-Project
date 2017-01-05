@@ -9,7 +9,7 @@ abstract public class ActiveableObject : MonoBehaviour {
 
     [HideInInspector]
     public string StatusText;
-    [HideInInspector]
+    
     public bool Locked = false;
     [HideInInspector]
     public bool Activated = false;
