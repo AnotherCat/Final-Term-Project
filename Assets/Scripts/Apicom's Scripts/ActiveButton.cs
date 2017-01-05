@@ -9,6 +9,9 @@ public class ActiveButton : ActiveableObject
     public string LockedText = "";
     public string ActiveableText = "";
     public string PresentText = "";
+    public string DelayingText = "";
+    public Color ActivatedColor;
+    public Color UnactivatedColor;
 
     public Text StateText;
     public Slider SliderDelaying;
@@ -28,7 +31,7 @@ public class ActiveButton : ActiveableObject
                 //StatusText = ActiveableText;
                 if (Delaying)
                 {
-                    StatusText = "...";
+                    StatusText = DelayingText;
                 }else
                 {
                     StatusText = ActiveableText;
@@ -60,17 +63,28 @@ public class ActiveButton : ActiveableObject
         StatusColor();
 
         if(Delay > 0 && SliderDelaying != null)
-        SliderDelaying.value = (timer / Delay) * 100;
+        {
+            if (Delaying)
+            {
+                SliderDelaying.gameObject.SetActive(true);
+                SliderDelaying.value = (timer / Delay) * 100;
+            }
+            else
+            {
+                SliderDelaying.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void StatusColor()
     {
         if (Activated)
         {
-            GetComponent<Renderer>().material.color = Color.green;
-        }else
+            GetComponent<Renderer>().material.color = ActivatedColor;
+        }
+        else
         {
-            GetComponent<Renderer>().material.color = Color.red;
+            GetComponent<Renderer>().material.color = UnactivatedColor;
         }
     }
 }

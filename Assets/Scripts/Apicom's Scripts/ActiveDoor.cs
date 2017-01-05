@@ -23,13 +23,23 @@ public class ActiveDoor : ActiveableObject
     {
         if (Locked || !CanActive) return;
 
-        if (opened)
+        if (Toggle)
         {
-            CloseDoor();
-        }else
+            if (opened)
+            {
+                CloseDoor();
+            }
+            else
+            {
+                OpenDoor();
+            }
+        }
+        else
         {
+            if(!opened)
             OpenDoor();
         }
+        
     }
 
     void OpenDoor()
@@ -52,16 +62,32 @@ public class ActiveDoor : ActiveableObject
             StatusText = LockedText;
         }else
         {
-            if (doorAnimation.IsPlaying("open") || doorAnimation.IsPlaying("close"))
+            if (Toggle)
             {
-                CanActive = false;
-                StatusText = InactivealbeText;
+                if (doorAnimation.IsPlaying("open") || doorAnimation.IsPlaying("close"))
+                {
+                    CanActive = false;
+                    StatusText = InactivealbeText;
+                }
+                else
+                {
+                    CanActive = true;
+                    StatusText = ActiveableText;
+                }
             }
             else
             {
-                CanActive = true;
-                StatusText = ActiveableText;
+                if (!opened)
+                {
+                    CanActive = true;
+                    StatusText = ActiveableText;
+                }else
+                {
+                    CanActive = false;
+                    StatusText = InactivealbeText;
+                }
             }
+            
         }
 
         if(StateText != null)

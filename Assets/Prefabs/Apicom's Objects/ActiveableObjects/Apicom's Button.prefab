@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146509758517262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.67, y: 0.8, z: -7.819866}
-  m_LocalScale: {x: 1, y: 0.81, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,10 +96,16 @@ MonoBehaviour:
   StatusText: 
   Locked: 0
   Activated: 0
+  Hold: 0
   Toggle: 1
+  Delay: 0
+  Delaying: 0
+  timer: 0
   LockedText: Locked
   ActiveableText: Press E
+  PresentText: 
   StateText: {fileID: 0}
+  SliderDelaying: {fileID: 0}
 --- !u!136 &136047748504422184
 CapsuleCollider:
   m_ObjectHideFlags: 1

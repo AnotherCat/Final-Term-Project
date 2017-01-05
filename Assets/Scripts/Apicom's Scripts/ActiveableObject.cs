@@ -85,9 +85,11 @@ abstract public class ActiveableObject : MonoBehaviour {
             if (holding)
             {
                 timer += Time.deltaTime;
+                Delaying = true;
             }else
             {
                 timer = 0;
+                Delaying = false;
             }
 
             if (timer >= Delay)
@@ -96,10 +98,12 @@ abstract public class ActiveableObject : MonoBehaviour {
                 if (Toggle)
                 {
                     Activated = !Activated;
+                    Delaying = false;
                 }
                 else
                 {
                     Activated = true;
+                    Delaying = false;
                 }
             }
         }
