@@ -46,11 +46,13 @@ public class ActiveDoor : ActiveableObject
     {
         doorAnimation.Play("open");
         opened = true;
+        Activated = true;
     }
     void CloseDoor()
     {
         doorAnimation.Play("close");
         opened = false;
+        Activated = true;
     }
     
     public override void Update()
