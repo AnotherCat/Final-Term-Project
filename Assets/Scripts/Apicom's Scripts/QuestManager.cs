@@ -9,7 +9,14 @@ public class Quest
 {
     public string quest_title;
     public string quest_description;
-    public ActiveableObject[] MustActiveObjects;
+    public Objective[] quest_objectives;
+}
+
+[Serializable]
+public class Objective
+{
+    public ActiveableObject MustActiveObject;
+    public GameObject[] Navigators;
 }
 
 public class QuestManager : MonoBehaviour {
@@ -34,6 +41,17 @@ public class QuestManager : MonoBehaviour {
 
             NameText.text = quests[current_index].quest_title;
             DescriptionText.text = quests[current_index].quest_description;
+
+            // hide all navigator first
+            for(int i = 0;i < quests.Count; i++)
+            {
+                for(int j = 0;j < quests[i].quest_objectives.Length; j++)
+                {
+                    hideNavigator(i, j);
+                }
+            }
+
+            showNavigator(current_index, 0);
         }
 	}
 	
@@ -44,6 +62,14 @@ public class QuestManager : MonoBehaviour {
         ConditionQuest();
 
         if (previous_index == current_index || current_index >= quests_size || current_index < 0) return;
+
+        for(int i = 0;i < quests[current_index].quest_objectives.Length; i++)
+        {
+            for(int j = 0; j < quests[current_index].quest_objectives[i].Navigators.Length; j++)
+            {
+
+            }
+        }
 
         string quest_name = quests[current_index].quest_title;
         string quest_desc = quests[current_index].quest_description;
@@ -58,26 +84,63 @@ public class QuestManager : MonoBehaviour {
     {
         if (current_index > quests.Count - 1) return;
 
-        int mustActiveObjects = quests[current_index].MustActiveObjects.Length;
+        int objective_length = quests[current_index].quest_objectives.Length;
         bool foo = true;
 
-        if(mustActiveObjects == 0)
+        if(objective_length == 0)
         {
             foo = false;
             return;
         }
 
-        for(int i = 0;i < mustActiveObjects; i++)
+        for(int i = 0;i < objective_length; i++)
         {
-            if (!quests[current_index].MustActiveObjects[i].Activated)
+            //if (!quests[current_index].quest_objectives[i].MustActiveObject.Activated)
+            //{
+            //    foo = false;
+            //    break;
+            //}
+            if (quests[current_index].quest_objectives[i].MustActiveObject.Activated)
+            {
+                for(int j = 0; j < quests[current_index].quest_objectives[i].Navigators.Length; j++)
+                {
+                    hideNavigator(current_index, i);
+                }
+            }else
             {
                 foo = false;
-                break;
             }
         }
         if (foo)
         {
+            // hide all navigator before change objective
+            for(int i = 0; i < quests[current_index].quest_objectives.Length; i++)
+            {
+                hideNavigator(current_index, i);
+            }
             current_index++;
+
+            // show
+            for (int i = 0; i < quests[current_index].quest_objectives.Length; i++)
+            {
+                showNavigator(current_index, i);
+            }
+        }
+    }
+
+    void hideNavigator(int quest_index,int objective_index)
+    {
+        for(int i = 0;i < quests[quest_index].quest_objectives[objective_index].Navigators.Length; i++)
+        {
+            quests[quest_index].quest_objectives[objective_index].Navigators[i].SetActive(false);
+        }
+    }
+
+    void showNavigator(int quest_index, int objective_index)
+    {
+        for (int i = 0; i < quests[quest_index].quest_objectives[objective_index].Navigators.Length; i++)
+        {
+            quests[quest_index].quest_objectives[objective_index].Navigators[i].SetActive(true);
         }
     }
 }
