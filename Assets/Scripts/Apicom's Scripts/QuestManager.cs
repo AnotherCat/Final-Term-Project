@@ -33,7 +33,7 @@ public class QuestManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if(quests != null)
+        if(quests != null && quests.Count > 0)
         {
             quests_size = quests.Count;
             current_index = 0;
