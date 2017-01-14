@@ -37,7 +37,7 @@ public class LookFocus : MonoBehaviour {
         }
         else
         {
-            ActiveObjectText.text = "";
+            ActiveObjectText.text = "+";
         }
     }
 }
