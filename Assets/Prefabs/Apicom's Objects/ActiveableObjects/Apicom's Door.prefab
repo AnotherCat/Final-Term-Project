@@ -401,7 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MustActiveObjects: []
   StatusText: 
-  Locked: 0
+  Locked: 1
   Activated: 0
   Hold: 0
   Toggle: 0
