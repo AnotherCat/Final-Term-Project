@@ -1,17 +1,17 @@
 fileFormatVersion: 2
 guid: 1462c0b6ac82af24a94951bd4f578aa6
-timeCreated: 1484885143
+timeCreated: 1484984499
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: pPlane1
-    100002: //RootNode
-    400000: pPlane1
-    400002: //RootNode
-    2300000: pPlane1
-    3300000: pPlane1
-    4300000: pPlane1
+    100000: //RootNode
+    100002: WallDoor2_pPlane1
+    400000: //RootNode
+    400002: WallDoor2_pPlane1
+    2300000: WallDoor2_pPlane1
+    3300000: WallDoor2_pPlane1
+    4300000: WallDoor2_pPlane1
   materials:
     importMaterials: 1
     materialName: 0

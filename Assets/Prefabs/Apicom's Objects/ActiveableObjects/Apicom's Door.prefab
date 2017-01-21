@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 4756372178508804}
   - component: {fileID: 33881741196809368}
   - component: {fileID: 23548055968143038}
-  - component: {fileID: 65404444382823038}
   m_Layer: 0
   m_Name: base
   m_TagString: Untagged
@@ -159,9 +158,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1421837520879980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.02, y: -5.76, z: 33.78}
+  m_LocalScale: {x: 1.2728543, y: 1.2728542, z: 1.2728542}
   m_Children:
   - {fileID: 4756372178508804}
   - {fileID: 4803259544632750}
@@ -359,18 +358,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.67, y: 5.89, z: 0.83}
   m_Center: {x: -1.37, y: 2.42, z: 1.07}
---- !u!65 &65404444382823038
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1644328976502812}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.9544897, y: 2.0236135, z: 0.15222564}
-  m_Center: {x: -9.554158e-16, y: -0.0000004995206, z: 0.07611252}
 --- !u!111 &111405132213506442
 Animation:
   m_ObjectHideFlags: 1
@@ -401,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MustActiveObjects: []
   StatusText: 
-  Locked: 1
+  Locked: 0
   Activated: 0
   Hold: 0
   Toggle: 0
