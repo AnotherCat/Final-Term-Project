@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActiveableObject20 : MonoBehaviour {
 
@@ -9,6 +10,13 @@ public class ActiveableObject20 : MonoBehaviour {
     public bool IsLock = false;
     public bool IsToggle = false;
     public bool Activated = false;
+
+    public Text TitleQuest;
+    [TextArea]
+    public string TitleQuestString;
+    public Text DescriptQuest;
+    [TextArea]
+    public string DescriptionQuestString;
 
     public virtual void OnTriggerStay(Collider other)
     {

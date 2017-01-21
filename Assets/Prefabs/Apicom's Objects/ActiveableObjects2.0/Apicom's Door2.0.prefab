@@ -122,9 +122,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1907595888226442}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2787104, y: 0.90203166, z: 183.59528}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.774871, y: -2.0996766, z: -2.9346771}
+  m_LocalScale: {x: 1.2295742, y: 1.2295744, z: 1.2295744}
   m_Children:
   - {fileID: 4430190063445372}
   - {fileID: 4732457647020470}
@@ -435,6 +435,10 @@ MonoBehaviour:
   IsLock: 0
   IsToggle: 0
   Activated: 0
+  TitleQuest: {fileID: 0}
+  TitleQuestString: "\u0E2D\u0E4B\u0E2D \u0E19\u0E31\u0E48\u0E19\u0E44\u0E07 \u0E40\u0E14\u0E34\u0E19\u0E44\u0E1B\u0E15\u0E23\u0E07\u0E19\u0E31\u0E49\u0E19!!!"
+  DescriptQuest: {fileID: 0}
+  DescriptionQuestString: "-\u0E40\u0E14\u0E34\u0E19\u0E44\u0E1B\u0E15\u0E23\u0E07\u0E19\u0E31\u0E49\u0E19"
   doorAnimation: {fileID: 111465054869305978}
   uiFloating: {fileID: 114642077748622396}
 --- !u!114 &114642077748622396
@@ -448,5 +452,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f851b5117af904cbda77de31d26a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distancetoHide: 20
+  distancetoHide: 5
   prefabName: Lock

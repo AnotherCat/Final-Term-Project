@@ -8,7 +8,7 @@ public class WalkHere : ActiveableObject20 {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Contains("Player")) // player in range
+        if (other.tag.Contains("Player") && !IsLock) // player in range
         {
             Interact();
         }
@@ -22,18 +22,28 @@ public class WalkHere : ActiveableObject20 {
     public override void Interact()
     {
         Activated = true;
+        IsLock = true;
+
+        if (TitleQuest != null && DescriptQuest != null)
+        {
+            TitleQuest.text = TitleQuestString;
+            DescriptQuest.text = DescriptionQuestString;
+        }
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (!Activated)
-        {
-            uiFloating.show();
-        }else
+
+        if (uiFloating == null) return;
+
+        if(Activated || IsLock)
         {
             uiFloating.hide();
+        }else
+        {
+            uiFloating.show();
         }
     }
 }

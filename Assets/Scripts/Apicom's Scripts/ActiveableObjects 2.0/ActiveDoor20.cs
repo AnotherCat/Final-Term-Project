@@ -22,6 +22,12 @@ public class ActiveDoor20 : ActiveableObject20 {
         {
             OpenAnimation();
             IsLock = true;
+
+            if (TitleQuest != null && DescriptQuest != null)
+            {
+                TitleQuest.text = TitleQuestString;
+                DescriptQuest.text = DescriptionQuestString;
+            }
         }
     }
 
@@ -46,15 +52,12 @@ public class ActiveDoor20 : ActiveableObject20 {
     public override void Update()
     {
         base.Update();
-        if (Activated && IsLock)
+        if (!IsLock || Activated)
         {
             uiFloating.hide();
-        }else if(IsLock)
-        {
-            uiFloating.show();
         }else
         {
-            uiFloating.hide();
+            uiFloating.show();
         }
     }
 }

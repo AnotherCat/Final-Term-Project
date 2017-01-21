@@ -21,11 +21,10 @@ public class UIFloating : MonoBehaviour {
         Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
         instance.SetParent(ParentTransform.transform, false);
         instance.position = screenPosition;
+        hide();
 	}
 	
 	void Update () {
-
-        if (instance == null) return;
         if (Camera.main == null) return;
         if (player == null)
         {
@@ -33,39 +32,36 @@ public class UIFloating : MonoBehaviour {
             return;
         }
 
-        if (Vector3.Distance(player.transform.position, transform.position) > distancetoHide)
-        {
-            hide();
-            return;
-        }else
-        {
-            show();
-            instance.gameObject.SetActive(true);
-        }
-
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-        if(screenPosition.z > 0 &&
-            screenPosition.x > 0 && screenPosition.x < Screen.width &&
-            screenPosition.y > 0 && screenPosition.y < Screen.height)
-        {
-            show();
-            instance.position = screenPosition;
-        }
-        else // offscreen
-        {
-            hide();
-        }
-
-        
-	}
+        //if (Vector3.Distance(player.transform.position, transform.position) > distancetoHide)
+        //{
+        //    hide();
+        //    return;
+        //}
+        //else
+        //{
+        //    Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        //    instance.position = screenPosition;
+        //    if (screenPosition.z > 0 &&
+        //        screenPosition.x > 0 && screenPosition.x < Screen.width &&
+        //        screenPosition.y > 0 && screenPosition.y < Screen.height)
+        //    {
+        //        show();
+        //    }
+        //    else // offscreen
+        //    {
+        //        hide();
+        //    }
+        //}
+    }
 
     public void show()
     {
-        if (Camera.main == null) return;
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-        if (screenPosition.z > 0 &&
+        instance.position = screenPosition;
+        if ((screenPosition.z > 0 &&
             screenPosition.x > 0 && screenPosition.x < Screen.width &&
-            screenPosition.y > 0 && screenPosition.y < Screen.height)
+            screenPosition.y > 0 && screenPosition.y < Screen.height) &&
+            Vector3.Distance(player.transform.position, transform.position) < distancetoHide)
         {
             instance.gameObject.SetActive(true);
         }

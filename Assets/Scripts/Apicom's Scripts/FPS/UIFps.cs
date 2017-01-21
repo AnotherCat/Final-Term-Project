@@ -17,8 +17,6 @@ public class UIFps : MonoBehaviour {
         cc.enabled = false;
         fps.enabled = false;
         cam.enabled = false;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
 
     public void UnfreezePlayer()
@@ -26,6 +24,16 @@ public class UIFps : MonoBehaviour {
         cc.enabled = true;
         fps.enabled = true;
         cam.enabled = true;
+    }
+
+    public void ShowCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void HideCursor()
+    {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
