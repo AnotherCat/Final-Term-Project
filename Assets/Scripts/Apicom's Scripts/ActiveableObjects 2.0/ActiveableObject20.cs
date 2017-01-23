@@ -18,26 +18,19 @@ public class ActiveableObject20 : MonoBehaviour {
     [TextArea]
     public string DescriptionQuestString;
 
-    public virtual void OnTriggerStay(Collider other)
+    private UIFps ui;
+    protected bool inRange = false;
+
+    private void Start()
     {
-        if (other.tag.Contains("Player")) // player in range
+        ui = GameObject.FindGameObjectWithTag("Player").GetComponent<UIFps>();
+    }
+
+    public virtual void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Contains("Player"))
         {
-            UIFps ui = other.GetComponent<UIFps>();
-            if(ui != null)
-            {
-                if (IsLock)
-                {
-                    ui.MidText.text = "";
-                }else
-                {
-                    ui.MidText.text = "Press " + Press.ToString();
-                }
-                
-            }
-            if (Input.GetKeyDown(Press) && !IsLock)
-            {
-                Interact();
-            }
+            inRange = true;
         }
     }
     public virtual void OnTriggerExit(Collider other)
@@ -49,6 +42,28 @@ public class ActiveableObject20 : MonoBehaviour {
             {
                 ui.MidText.text = "";
             }
+        }
+
+        inRange = false;
+    }
+
+    void DoProcess()
+    {
+        if (ui != null)
+        {
+            if (IsLock)
+            {
+                ui.MidText.text = "";
+            }
+            else
+            {
+                ui.MidText.text = "Press " + Press.ToString();
+            }
+
+        }
+        if (Input.GetKeyDown(Press) && !IsLock)
+        {
+            Interact();
         }
     }
 
@@ -71,6 +86,11 @@ public class ActiveableObject20 : MonoBehaviour {
                     break;
                 }
             }
+        }
+
+        if (inRange)
+        {
+            DoProcess();
         }
     }
 }

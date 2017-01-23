@@ -17,6 +17,7 @@ public class UIFps : MonoBehaviour {
         cc.enabled = false;
         fps.enabled = false;
         cam.enabled = false;
+        MidText.enabled = false;
     }
 
     public void UnfreezePlayer()
@@ -24,6 +25,7 @@ public class UIFps : MonoBehaviour {
         cc.enabled = true;
         fps.enabled = true;
         cam.enabled = true;
+        MidText.enabled = true;
     }
 
     public void ShowCursor()

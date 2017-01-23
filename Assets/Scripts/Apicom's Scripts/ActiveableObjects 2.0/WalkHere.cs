@@ -6,17 +6,12 @@ public class WalkHere : ActiveableObject20 {
 
     public UIFloating uiFloating;
 
-    void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
         if (other.tag.Contains("Player") && !IsLock) // player in range
         {
             Interact();
         }
-    }
-
-    public override void OnTriggerStay(Collider other)
-    {
-        // do nothing
     }
 
     public override void Interact()

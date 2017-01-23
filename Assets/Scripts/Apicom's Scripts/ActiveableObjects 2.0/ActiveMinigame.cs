@@ -10,11 +10,13 @@ public class ActiveMinigame : ActiveableObject20 {
     public int T_need = 0;
     public int E_need = 0;
     public int M_need = 0;
+    public int Energy_Need = 0;
 
     public int Gain_S = 0;
     public int Gain_T = 0;
     public int Gain_E = 0;
     public int Gain_M = 0;
+    public int Gain_Energy = 0;
 
     public GameObject MinigameCanvas;
     public GameObject MinigameCamera;
@@ -22,16 +24,34 @@ public class ActiveMinigame : ActiveableObject20 {
     public UIFloating uiFloating;
     
     private UIFps ui;
+    private bool inRangeMinigame = false;
 
     private void Start()
     {
         MinigameCanvas.SetActive(false);
         MinigameCamera.SetActive(false);
+        ui = GameObject.FindGameObjectWithTag("Player").GetComponent<UIFps>();
     }
 
-    public override void OnTriggerStay(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
-        ui = other.GetComponent<UIFps>();
+        if (other.tag.Contains("Player"))
+        {
+            inRangeMinigame = true;
+        }
+    }
+
+    public override void OnTriggerExit(Collider other)
+    {
+        base.OnTriggerExit(other);
+        if (other.tag.Contains("Player"))
+        {
+            inRangeMinigame = false;
+        }
+    }
+
+    void DoProcess()
+    {
         if (ui != null)
         {
             if (IsLock)
@@ -40,34 +60,40 @@ public class ActiveMinigame : ActiveableObject20 {
             }
             else
             {
-                if(GameManager.S >= S_need &&
+                if (GameManager.S >= S_need &&
                     GameManager.T >= T_need &&
                     GameManager.E >= E_need &&
-                    GameManager.M >= M_need)
+                    GameManager.M >= M_need &&
+                    GameManager.Energy >= Energy_Need)
                 {
                     ui.MidText.text = "Press " + Press.ToString();
-                }else
+                }
+                else
                 {
-                    string whatweneed = "";
-                    if(S_need > 0)
+                    string whatweneed = "Needs ";
+                    if (S_need > GameManager.S)
                     {
-                        whatweneed += "Need S : " + S_need;
+                        whatweneed += " [S : " + S_need + "]";
                     }
-                    if(T_need > 0)
+                    if (T_need > GameManager.T)
                     {
-                        whatweneed += "\nNeed T : " + T_need;
+                        whatweneed += " [T : " + T_need + "]";
                     }
-                    if(E_need > 0)
+                    if (E_need > GameManager.E)
                     {
-                        whatweneed += "\nNeed E : " + E_need;
+                        whatweneed += " [E : " + E_need + "]";
                     }
-                    if(M_need > 0)
+                    if (M_need > GameManager.M)
                     {
-                        whatweneed += "\nNeed M : " + M_need;
+                        whatweneed += " [M : " + M_need + "]";
+                    }
+                    if (Energy_Need > GameManager.Energy)
+                    {
+                        whatweneed += " [Energy : " + Energy_Need + "]";
                     }
                     ui.MidText.text = whatweneed;
                 }
-                
+
             }
 
         }
@@ -76,9 +102,10 @@ public class ActiveMinigame : ActiveableObject20 {
             GameManager.S >= S_need &&
             GameManager.T >= T_need &&
             GameManager.E >= E_need &&
-            GameManager.M >= M_need)
+            GameManager.M >= M_need &&
+            GameManager.Energy >= Energy_Need)
         {
-            
+
             Interact();
         }
     }
@@ -105,6 +132,7 @@ public class ActiveMinigame : ActiveableObject20 {
         GameManager.T += Gain_T;
         GameManager.E += Gain_E;
         GameManager.M += Gain_M;
+        GameManager.Energy += Gain_Energy;
 
         if (TitleQuest != null && DescriptQuest != null)
         {
@@ -124,12 +152,20 @@ public class ActiveMinigame : ActiveableObject20 {
     {
         base.Update();
 
-        if (Activated || IsLock)
+        if (uiFloating != null)
         {
-            uiFloating.hide();
-        }else
+            if (Activated || IsLock)
+            {
+                uiFloating.hide();
+            }
+            else
+            {
+                uiFloating.show();
+            }
+        }
+        if (inRangeMinigame)
         {
-            uiFloating.show();
+            DoProcess();
         }
     }
 }
