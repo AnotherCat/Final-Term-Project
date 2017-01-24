@@ -23,14 +23,14 @@ public class ActiveMinigame : ActiveableObject20 {
 
     public UIFloating uiFloating;
     
-    private UIFps ui;
+    private UIFps uiFPS;
     private bool inRangeMinigame = false;
 
     private void Start()
     {
         MinigameCanvas.SetActive(false);
         MinigameCamera.SetActive(false);
-        ui = GameObject.FindGameObjectWithTag("Player").GetComponent<UIFps>();
+        uiFPS = GameObject.FindGameObjectWithTag("Player").GetComponent<UIFps>();
     }
 
     public override void OnTriggerEnter(Collider other)
@@ -52,11 +52,11 @@ public class ActiveMinigame : ActiveableObject20 {
 
     void DoProcess()
     {
-        if (ui != null)
+        if (uiFPS != null)
         {
             if (IsLock)
             {
-                ui.MidText.text = "";
+                uiFPS.MidText.text = "";
             }
             else
             {
@@ -66,7 +66,7 @@ public class ActiveMinigame : ActiveableObject20 {
                     GameManager.M >= M_need &&
                     GameManager.Energy >= Energy_Need)
                 {
-                    ui.MidText.text = "Press " + Press.ToString();
+                    uiFPS.MidText.text = "Press " + Press.ToString();
                 }
                 else
                 {
@@ -91,7 +91,7 @@ public class ActiveMinigame : ActiveableObject20 {
                     {
                         whatweneed += " [Energy : " + Energy_Need + "]";
                     }
-                    ui.MidText.text = whatweneed;
+                    uiFPS.MidText.text = whatweneed;
                 }
 
             }
@@ -112,16 +112,16 @@ public class ActiveMinigame : ActiveableObject20 {
 
     public override void Interact()
     {
-        ui.FreezePlayer();
-        ui.ShowCursor();
+        uiFPS.FreezePlayer();
+        uiFPS.ShowCursor();
         MinigameCamera.SetActive(true);
         MinigameCanvas.SetActive(true);
     }
 
     public void OnCorrect()
     {
-        ui.UnfreezePlayer();
-        ui.HideCursor();
+        uiFPS.UnfreezePlayer();
+        uiFPS.HideCursor();
         MinigameCamera.SetActive(false);
         MinigameCanvas.SetActive(false);
 
@@ -142,8 +142,8 @@ public class ActiveMinigame : ActiveableObject20 {
     }
     public void OnIncorrect()
     {
-        ui.UnfreezePlayer();
-        ui.HideCursor();
+        uiFPS.UnfreezePlayer();
+        uiFPS.HideCursor();
         MinigameCamera.SetActive(false);
         MinigameCanvas.SetActive(false);
     }
