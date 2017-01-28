@@ -1269,10 +1269,10 @@ MonoBehaviour:
   Answer: 01000000010000000100000001000000
   result: 03000000030000000300000003000000
   sprite:
-  - {fileID: 21300000, guid: a20e6bc6cd9ae8f4682926ff02d54573, type: 3}
-  - {fileID: 21300000, guid: c22605f9b20b7aa479efe2c7680d0fd5, type: 3}
-  - {fileID: 21300000, guid: dd635174066ee0d40a0e8ea55121c667, type: 3}
-  - {fileID: 21300000, guid: b669db87abe5dd849992396165ac1786, type: 3}
+  - {fileID: 21300000, guid: 046f0c96b17eaed4fa7acba54cc2ebac, type: 3}
+  - {fileID: 21300000, guid: 8310cae97a87fd14db74833c3a8d63c2, type: 3}
+  - {fileID: 21300000, guid: d8ec3f6b309eaa942adc70af3d597a2e, type: 3}
+  - {fileID: 21300000, guid: 60883b570c7ea6440969a7e1c06d8673, type: 3}
   buttons:
   - {fileID: 184938297}
   - {fileID: 760252764}
