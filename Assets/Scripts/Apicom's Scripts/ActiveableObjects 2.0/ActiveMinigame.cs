@@ -60,34 +60,34 @@ public class ActiveMinigame : ActiveableObject20 {
             }
             else
             {
-                if (GameManager.S >= S_need &&
-                    GameManager.T >= T_need &&
-                    GameManager.E >= E_need &&
-                    GameManager.M >= M_need &&
-                    GameManager.Energy >= Energy_Need)
+                if (GameManager.GM.S >= S_need &&
+                    GameManager.GM.T >= T_need &&
+                    GameManager.GM.E >= E_need &&
+                    GameManager.GM.M >= M_need &&
+                    GameManager.GM.Energy >= Energy_Need)
                 {
                     uiFPS.MidText.text = "Press " + Press.ToString();
                 }
                 else
                 {
                     string whatweneed = "Needs ";
-                    if (S_need > GameManager.S)
+                    if (S_need > GameManager.GM.S)
                     {
                         whatweneed += " [S : " + S_need + "]";
                     }
-                    if (T_need > GameManager.T)
+                    if (T_need > GameManager.GM.T)
                     {
                         whatweneed += " [T : " + T_need + "]";
                     }
-                    if (E_need > GameManager.E)
+                    if (E_need > GameManager.GM.E)
                     {
                         whatweneed += " [E : " + E_need + "]";
                     }
-                    if (M_need > GameManager.M)
+                    if (M_need > GameManager.GM.M)
                     {
                         whatweneed += " [M : " + M_need + "]";
                     }
-                    if (Energy_Need > GameManager.Energy)
+                    if (Energy_Need > GameManager.GM.Energy)
                     {
                         whatweneed += " [Energy : " + Energy_Need + "]";
                     }
@@ -99,11 +99,11 @@ public class ActiveMinigame : ActiveableObject20 {
         }
         if (Input.GetKeyDown(Press) &&
             !IsLock &&
-            GameManager.S >= S_need &&
-            GameManager.T >= T_need &&
-            GameManager.E >= E_need &&
-            GameManager.M >= M_need &&
-            GameManager.Energy >= Energy_Need)
+            GameManager.GM.S >= S_need &&
+            GameManager.GM.T >= T_need &&
+            GameManager.GM.E >= E_need &&
+            GameManager.GM.M >= M_need &&
+            GameManager.GM.Energy >= Energy_Need)
         {
 
             Interact();
@@ -128,11 +128,11 @@ public class ActiveMinigame : ActiveableObject20 {
         Activated = true;
         IsLock = true;
 
-        GameManager.S += Gain_S;
-        GameManager.T += Gain_T;
-        GameManager.E += Gain_E;
-        GameManager.M += Gain_M;
-        GameManager.Energy += Gain_Energy;
+        GameManager.GM.S += Gain_S;
+        GameManager.GM.T += Gain_T;
+        GameManager.GM.E += Gain_E;
+        GameManager.GM.M += Gain_M;
+        GameManager.GM.Energy += Gain_Energy;
 
         if (TitleQuest != null && DescriptQuest != null)
         {
