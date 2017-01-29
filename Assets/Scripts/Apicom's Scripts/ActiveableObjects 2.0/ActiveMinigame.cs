@@ -133,6 +133,7 @@ public class ActiveMinigame : ActiveableObject20 {
         GameManager.GM.E += Gain_E;
         GameManager.GM.M += Gain_M;
         GameManager.GM.Energy += Gain_Energy;
+        GameManager.GM.RefreshUI();
 
         if (TitleQuest != null && DescriptQuest != null)
         {
