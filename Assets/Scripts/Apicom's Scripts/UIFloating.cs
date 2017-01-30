@@ -32,26 +32,6 @@ public class UIFloating : MonoBehaviour {
             return;
         }
 
-        //if (Vector3.Distance(player.transform.position, transform.position) > distancetoHide)
-        //{
-        //    hide();
-        //    return;
-        //}
-        //else
-        //{
-        //    Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-        //    instance.position = screenPosition;
-        //    if (screenPosition.z > 0 &&
-        //        screenPosition.x > 0 && screenPosition.x < Screen.width &&
-        //        screenPosition.y > 0 && screenPosition.y < Screen.height)
-        //    {
-        //        show();
-        //    }
-        //    else // offscreen
-        //    {
-        //        hide();
-        //    }
-        //}
     }
 
     public void show()

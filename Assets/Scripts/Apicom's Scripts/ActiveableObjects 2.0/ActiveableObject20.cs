@@ -63,6 +63,7 @@ public class ActiveableObject20 : MonoBehaviour {
         }
         if (Input.GetKeyDown(Press) && !IsLock)
         {
+            ui.MidText.text = "";
             Interact();
         }
     }
