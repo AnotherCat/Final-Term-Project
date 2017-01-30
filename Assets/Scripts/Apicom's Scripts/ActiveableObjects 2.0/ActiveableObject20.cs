@@ -57,7 +57,7 @@ public class ActiveableObject20 : MonoBehaviour {
             }
             else
             {
-                ui.MidText.text = "Press " + Press.ToString();
+                ui.MidText.text = playerText();
             }
 
         }
@@ -66,6 +66,11 @@ public class ActiveableObject20 : MonoBehaviour {
             ui.MidText.text = "";
             Interact();
         }
+    }
+
+    public virtual string playerText()
+    {
+        return "Press " + Press.ToString();
     }
 
     public virtual void Interact()

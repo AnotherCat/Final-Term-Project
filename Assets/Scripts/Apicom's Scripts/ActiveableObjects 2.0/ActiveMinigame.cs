@@ -18,6 +18,9 @@ public class ActiveMinigame : ActiveableObject20 {
     public int Gain_M = 0;
     public int Gain_Energy = 0;
 
+    public int Battery_need = 0;
+    public int Wrench_need = 0;
+
     public GameObject MinigameCanvas;
     public GameObject MinigameCamera;
 
@@ -60,11 +63,7 @@ public class ActiveMinigame : ActiveableObject20 {
             }
             else
             {
-                if (GameManager.GM.S >= S_need &&
-                    GameManager.GM.T >= T_need &&
-                    GameManager.GM.E >= E_need &&
-                    GameManager.GM.M >= M_need &&
-                    GameManager.GM.Energy >= Energy_Need)
+                if (EnoughStuff())
                 {
                     uiFPS.MidText.text = "Press " + Press.ToString();
                 }
@@ -73,23 +72,33 @@ public class ActiveMinigame : ActiveableObject20 {
                     string whatweneed = "Needs ";
                     if (S_need > GameManager.GM.S)
                     {
-                        whatweneed += " [S : " + S_need + "]";
+                        whatweneed += " [S x " + S_need + "]";
                     }
                     if (T_need > GameManager.GM.T)
                     {
-                        whatweneed += " [T : " + T_need + "]";
+                        whatweneed += " [T x " + T_need + "]";
                     }
                     if (E_need > GameManager.GM.E)
                     {
-                        whatweneed += " [E : " + E_need + "]";
+                        whatweneed += " [E x " + E_need + "]";
                     }
                     if (M_need > GameManager.GM.M)
                     {
-                        whatweneed += " [M : " + M_need + "]";
+                        whatweneed += " [M x " + M_need + "]";
                     }
                     if (Energy_Need > GameManager.GM.Energy)
                     {
-                        whatweneed += " [Energy : " + Energy_Need + "]";
+                        whatweneed += " [Energy x " + Energy_Need + "]";
+                    }
+
+                    if (Battery_need > GameManager.GM.Battery)
+                    {
+                        whatweneed += " [Battery x " + Battery_need + "]";
+                    }
+
+                    if (Wrench_need > GameManager.GM.Wrench)
+                    {
+                        whatweneed += " [Wrench x " + Wrench_need + "]";
                     }
                     uiFPS.MidText.text = whatweneed;
                 }
@@ -99,15 +108,22 @@ public class ActiveMinigame : ActiveableObject20 {
         }
         if (Input.GetKeyDown(Press) &&
             !IsLock &&
-            GameManager.GM.S >= S_need &&
-            GameManager.GM.T >= T_need &&
-            GameManager.GM.E >= E_need &&
-            GameManager.GM.M >= M_need &&
-            GameManager.GM.Energy >= Energy_Need)
+            EnoughStuff())
         {
 
             Interact();
         }
+    }
+
+    bool EnoughStuff()
+    {
+        return (GameManager.GM.S >= S_need &&
+                    GameManager.GM.T >= T_need &&
+                    GameManager.GM.E >= E_need &&
+                    GameManager.GM.M >= M_need &&
+                    GameManager.GM.Energy >= Energy_Need &&
+                    GameManager.GM.Battery >= Battery_need &&
+                    GameManager.GM.Wrench >= Wrench_need);
     }
 
     public override void Interact()
@@ -133,6 +149,8 @@ public class ActiveMinigame : ActiveableObject20 {
         GameManager.GM.E += Gain_E;
         GameManager.GM.M += Gain_M;
         GameManager.GM.Energy += Gain_Energy;
+        GameManager.GM.Battery -= Battery_need;
+        GameManager.GM.Wrench -= Wrench_need;
         GameManager.GM.RefreshUI();
 
         if (TitleQuest != null && DescriptQuest != null)

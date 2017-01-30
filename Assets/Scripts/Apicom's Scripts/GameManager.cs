@@ -13,11 +13,17 @@ public class GameManager : MonoBehaviour {
     public Text M_Text;
     public Text Energy_Text;
 
+    public Text Battery_Text;
+    public Text Wrench_Text;
+
     public int S = 0;
     public int T = 0;
     public int E = 0;
     public int M = 0;
     public int Energy = 0;
+
+    public int Battery = 0;
+    public int Wrench = 0;
 
     public GameObject[] ScienceExtra;
     public GameObject[] TechnologyExtra;
@@ -37,12 +43,7 @@ public class GameManager : MonoBehaviour {
     {
         RefreshUI();
     }
-
-    public void Update()
-    {
-        
-    }
-
+    
     public void RefreshUI()
     {
         updateIndicator(ScienceExtra, S);
@@ -56,6 +57,9 @@ public class GameManager : MonoBehaviour {
         E_Text.text = "E : " + E;
         M_Text.text = "M : " + M;
         Energy_Text.text = "Energy : " + Energy;
+
+        Battery_Text.text = "" + Battery;
+        Wrench_Text.text = "" + Wrench;
     }
 
     void updateIndicator(GameObject[] Extra,int STEM)
