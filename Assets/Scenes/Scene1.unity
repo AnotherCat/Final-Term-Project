@@ -656,6 +656,59 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &43039604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1929440619769496, guid: 4d9dff8c41ebca948a0b2a464f24b57b,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 43039605}
+  - component: {fileID: 43039607}
+  - component: {fileID: 43039606}
+  m_Layer: 0
+  m_Name: collider (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &43039605
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4571795744158968, guid: 4d9dff8c41ebca948a0b2a464f24b57b,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 43039604}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.81, y: -3.917828, z: 31.810001}
+  m_LocalScale: {x: 8.4174595, y: 11.77036, z: 0.71906}
+  m_Children: []
+  m_Father: {fileID: 235024230}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &43039606
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 65794877516939056, guid: 4d9dff8c41ebca948a0b2a464f24b57b,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 43039604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &43039607
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33524792519962538, guid: 4d9dff8c41ebca948a0b2a464f24b57b,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 43039604}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &43114686
 GameObject:
   m_ObjectHideFlags: 0
@@ -4646,6 +4699,10 @@ Prefab:
     - target: {fileID: 4956326033616276, guid: 4d9dff8c41ebca948a0b2a464f24b57b, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571795744158968, guid: 4d9dff8c41ebca948a0b2a464f24b57b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 31.81
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d9dff8c41ebca948a0b2a464f24b57b, type: 2}
