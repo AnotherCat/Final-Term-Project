@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d41e3f3678309418a560ea17a5b66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell: 3
   TypeOfItem: 0
   matched: 0
 --- !u!114 &52124785
@@ -279,6 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d41e3f3678309418a560ea17a5b66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell: 2
   TypeOfItem: 0
   matched: 0
 --- !u!114 &129758418
@@ -489,7 +491,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1138545344211440, guid: 8dc15e2469658a648939e9aaffddf280, type: 2}
       propertyPath: m_Name
-      value: ApicomsCard (1)
+      value: ApicomsCard
       objectReference: {fileID: 0}
     - target: {fileID: 114415038516637006, guid: 8dc15e2469658a648939e9aaffddf280,
         type: 2}
@@ -614,6 +616,11 @@ Prefab:
         type: 2}
       propertyPath: TypeOfItem
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350013330517756, guid: 8dc15e2469658a648939e9aaffddf280,
+        type: 2}
+      propertyPath: cell
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8dc15e2469658a648939e9aaffddf280, type: 2}
@@ -827,6 +834,11 @@ Prefab:
       propertyPath: TypeOfItem
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114350013330517756, guid: 8dc15e2469658a648939e9aaffddf280,
+        type: 2}
+      propertyPath: cell
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8dc15e2469658a648939e9aaffddf280, type: 2}
   m_IsPrefabParent: 0
@@ -887,6 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d41e3f3678309418a560ea17a5b66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell: 0
   TypeOfItem: 1
   matched: 0
 --- !u!114 &1415423893
@@ -928,23 +941,17 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1415423890}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 197fa3de4080cf740ab705551fe12b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 300, y: 250}
-  m_Spacing: {x: 0, y: 0}
-  m_Constraint: 1
-  m_ConstraintCount: 2
+  zones:
+  - {fileID: 2016080316}
+  - {fileID: 1965456273}
+  - {fileID: 129758417}
+  - {fileID: 52124784}
+  matchedAll: 0
 --- !u!224 &1479524233 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224450242195749182, guid: 8dc15e2469658a648939e9aaffddf280,
@@ -1049,7 +1056,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1138545344211440, guid: 8dc15e2469658a648939e9aaffddf280, type: 2}
       propertyPath: m_Name
-      value: ApicomsCard2
+      value: ApicomsCard
       objectReference: {fileID: 0}
     - target: {fileID: 114415038516637006, guid: 8dc15e2469658a648939e9aaffddf280,
         type: 2}
@@ -1062,6 +1069,11 @@ Prefab:
         type: 2}
       propertyPath: TypeOfItem
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350013330517756, guid: 8dc15e2469658a648939e9aaffddf280,
+        type: 2}
+      propertyPath: cell
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8dc15e2469658a648939e9aaffddf280, type: 2}
@@ -1215,6 +1227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d41e3f3678309418a560ea17a5b66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell: 1
   TypeOfItem: 0
   matched: 0
 --- !u!114 &1965456274
@@ -1384,6 +1397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d41e3f3678309418a560ea17a5b66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell: 0
   TypeOfItem: 0
   matched: 0
 --- !u!114 &2016080317
