@@ -26,12 +26,16 @@ public class ApicomsDropZone : MonoBehaviour ,IDropHandler,IPointerEnterHandler,
         ApicomsDraggable d = eventData.pointerDrag.GetComponent<ApicomsDraggable>();
         if (d != null && gameObject.transform.childCount > 0 )
         {
-            gameObject.transform.GetChild(0).SetParent(d.parentToreturnTo);
-            if (TypeOfItem == d.TypeOfItem || TypeOfItem == ApicomsDraggable.slot.table)
-            {
-                d.parentToreturnTo = this.transform;
-                checkforAnswer(d.cell, Cell);
-            }          
+            Transform t = gameObject.transform.GetChild(0);
+            t.SetParent(d.parentToreturnTo);
+            d.parentToreturnTo.GetComponent<ApicomsDropZone>().checkforAnswer(t.GetComponent<ApicomsDraggable>().cell, d.parentToreturnTo.GetComponent<ApicomsDropZone>().Cell);
+            d.parentToreturnTo = this.transform;
+            checkforAnswer(d.cell, Cell);
+            //if (TypeOfItem == d.TypeOfItem || TypeOfItem == ApicomsDraggable.slot.table)
+            //{
+            //    d.parentToreturnTo = this.transform;
+            //    checkforAnswer(d.cell, Cell);
+            //}          
         }
     }
 

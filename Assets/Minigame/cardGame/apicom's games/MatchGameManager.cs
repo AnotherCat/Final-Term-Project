@@ -8,15 +8,29 @@ public class MatchGameManager : MonoBehaviour {
     public bool matchedAll = false;
 
 	void Start () {
-		
-	}
+        ApicomsDraggable[] aDrags = new ApicomsDraggable[zones.Length];
+        for (int i = 0; i < zones.Length; i++)
+        {
+            aDrags[i] = zones[i].transform.GetChild(0).GetComponent<ApicomsDraggable>();
+        }
+
+        for(int i = 0; i < zones.Length; i++)
+        {
+            while (true)
+            {
+                int index = Random.Range(0, aDrags.Length);
+                if (zones[i].Cell != aDrags[index].cell && !aDrags[index].randomed)
+                {
+                    aDrags[index].transform.SetParent(zones[i].transform);
+                    aDrags[index].randomed = true;
+                    break;
+                }
+            }
+        }
+    }
 	
 	void Update () {
-        foreach(ApicomsDropZone a in zones)
-        {
-            Debug.Log(a.matched);
-        }
-        //Debug.Log(checkAnswer());
+        Debug.Log(checkAnswer());
 	}
 
     bool checkAnswer()

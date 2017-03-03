@@ -6,8 +6,26 @@ using UnityEngine.UI;
 
 public class ApicomsDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public enum cells { t1, t2, t3, t4 }
+    public enum cells {
+        t1 = 0,
+        t2 = 1,
+        t3 = 2,
+        t4 = 3,
+        t5 = 4,
+        t6 = 5,
+        t7 = 6,
+        t8 = 7,
+        t9 = 8,
+        t10 = 9,
+        t11 = 10,
+        t12 = 11,
+        t13 = 12,
+        t14 = 13,
+        t15 = 14,
+        t16 = 15
+    }
     public cells cell = cells.t1;
+    public bool randomed = false;
 
     public Transform parentToreturnTo = null;
     public Transform placeholderParent = null;
