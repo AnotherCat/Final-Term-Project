@@ -12,3 +12,6 @@ This project compatible to unity3d version 5.5.2f1 [Download](https://unity3d.co
 1. download zip file game [Download](https://github.com/feedallcat/Final-Term-Project/raw/master/Final-Term-Project.zip)
 2. unzip game
 3. launch EXE/Final-Term-Project.exe
+
+#### or
+1. play on WebGL Build [Final-Term-Project](https://feedallcat.github.io/Final-Term-Project-WebGL/)
