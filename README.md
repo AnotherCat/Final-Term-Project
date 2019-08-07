@@ -9,6 +9,6 @@ This project compatible to unity3d version 5.5.2f1 [Download](https://unity3d.co
 3. Click Play
 
 ### Play Game
-1. download zip file game [Download](https://github.com/feedallcat/FinalProject/raw/master/BeMissile.zip)
+1. download zip file game [Download](https://github.com/feedallcat/Final-Term-Project/raw/master/Final-Term-Project.zip)
 2. unzip game
 3. launch EXE/Final-Term-Project.exe
